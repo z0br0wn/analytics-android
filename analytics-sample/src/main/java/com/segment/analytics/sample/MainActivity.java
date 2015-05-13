@@ -39,8 +39,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.segment.analytics.Analytics;
 import com.segment.analytics.StatsSnapshot;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends Activity {
+  final AtomicInteger test = new AtomicInteger(10);
 
   /** Returns true if the string is null, or empty (when trimmed). */
   public static boolean isNullOrEmpty(String text) {
@@ -56,7 +58,14 @@ public class MainActivity extends Activity {
   private void initViews() {
     findViewById(R.id.action_track_a).setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        Analytics.with(MainActivity.this).track("Button A Clicked");
+        Analytics.with(MainActivity.this).track("Before prateek" + test.get());
+        Analytics.with(MainActivity.this).alias("prateek" + test.get());
+        Analytics.with(MainActivity.this).identify("prateek" + test.get());
+        Analytics.with(MainActivity.this).track("After prateek" + test.get());
+        Analytics.with(MainActivity.this).track("Before prateek" + test.incrementAndGet());
+        Analytics.with(MainActivity.this).alias("prateek" + test.get());
+        Analytics.with(MainActivity.this).identify("prateek" + test.get());
+        Analytics.with(MainActivity.this).track("After prateek" + test.get());
       }
     });
     findViewById(R.id.action_track_b).setOnClickListener(new View.OnClickListener() {
