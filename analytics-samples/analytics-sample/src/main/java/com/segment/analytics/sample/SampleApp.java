@@ -3,6 +3,7 @@ package com.segment.analytics.sample;
 import android.app.Application;
 import android.widget.Toast;
 import com.segment.analytics.Analytics;
+import com.segment.analytics.android.integrations.localytics.LocalyticsIntegration;
 
 public class SampleApp extends Application {
 
@@ -15,6 +16,7 @@ public class SampleApp extends Application {
     // Initialize a new instance of the Analytics client.
     Analytics.Builder builder = new Analytics.Builder(this, ANALYTICS_WRITE_KEY) //
         .trackApplicationLifecycleEvents() //
+        .use(LocalyticsIntegration.FACTORY)
         .recordScreenViews();
     if (BuildConfig.DEBUG) {
       builder.logLevel(Analytics.LogLevel.VERBOSE);

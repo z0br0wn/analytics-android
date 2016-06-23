@@ -12,6 +12,7 @@ allprojects {
   buildscript {
     repositories {
       mavenCentral()
+      maven { url 'http://maven.localytics.com/public' }
     }
   }
 

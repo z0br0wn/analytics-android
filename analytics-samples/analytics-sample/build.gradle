@@ -5,7 +5,15 @@ apply plugin: 'com.f2prateek.checkstyle'
 apply from: rootProject.file('gradle/android.gradle')
 
 dependencies {
-  compile project(':analytics')
+repositories {
+    mavenCentral()
+    maven { url 'http://maven.localytics.com/public' }
+  }
+
+  compile 'com.segment.analytics.android:analytics:4.1.4'
+  compile('com.segment.analytics.android.integrations:localytics:1.0.2') {
+    transitive = true
+  }
   compile project(':analytics-wear')
 }
 
