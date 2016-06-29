@@ -5,8 +5,15 @@ apply plugin: 'com.f2prateek.checkstyle'
 apply from: rootProject.file('gradle/android.gradle')
 
 dependencies {
+  repositories {
+    jcenter()
+    maven {
+      url "http://dl.bintray.com/urbanairship/android"
+    }
+  }
   compile project(':analytics')
   compile project(':analytics-wear')
+  compile 'com.urbanairship.android:segment-integration:1.0.1'
 }
 
 checkstyle {
