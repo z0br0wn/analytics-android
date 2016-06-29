@@ -7,6 +7,20 @@ apply from: rootProject.file('gradle/android.gradle')
 dependencies {
   compile project(':analytics')
   compile project(':analytics-wear')
+  compile 'com.urbanairship.android:segment-integration:1.0.1'
+}
+
+android {
+  defaultConfig {
+    applicationId "com.segment.analytics.sample"
+  }
+}
+
+repositories {
+  jcenter()
+  maven {
+    url "http://dl.bintray.com/urbanairship/android"
+  }
 }
 
 checkstyle {

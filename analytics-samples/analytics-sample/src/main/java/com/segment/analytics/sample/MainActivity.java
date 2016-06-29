@@ -37,6 +37,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.segment.analytics.Analytics;
 import com.segment.analytics.StatsSnapshot;
 
